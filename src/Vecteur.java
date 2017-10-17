@@ -11,7 +11,7 @@ public class Vecteur {
         int i;
         int  j;
         int permute;
-        for (i=1;i<vect.length-1;i++) {
+        for (i=0;i<vect.length-1;i++) {
             j=i;
             while (vect[j]>vect[j+1] && j>0){
                 permute=vect[j];
@@ -20,6 +20,7 @@ public class Vecteur {
                 j--;
             }
         }
+
     }
 
     /**
@@ -32,7 +33,7 @@ public class Vecteur {
         int i;
         min_max[1]=vect[1];
         min_max[2]=vect[1];
-        for (i=1;i<vect.length;i++){
+        for (i=0;i<vect.length;i++){
             if(vect[i]<min_max[1])min_max[1]=vect[i];
             if(vect[i]>min_max[2])min_max[2]=vect[i];
         }
@@ -50,38 +51,44 @@ public class Vecteur {
     public void somme_vect (int vect1[],int vect2[],int vect_res[]) throws  ExptionClass{
         if (vect1.length!=vect2.length) throw new ExptionClass();
         else {
-           for (int i=1;i< vect1.length;i++) {
+           for (int i=0;i< vect1.length;i++) {
                vect_res[i] = vect1[i] + vect2[i];
            }
         }
+
     }
 
     /**
      * inverser une vecteur
      * @param vect
      */
-    public void invers_vect(int vect[]){
+    public int[] invers_vect(int vect[]){
         int i;
         int permute;
-        for (i=1;i<(vect.length)/2;i++){
-            permute=vect[vect.length-i+1];
-             vect[vect.length-i+1]=vect[i];
+        for (i=0;i<(vect.length)/2;i++){
+            permute=vect[vect.length-i-1];
+             vect[vect.length-i-1]=vect[i];
              vect[i]=permute;
         }
+        return vect;
     }
 
     /**
      * c'est une formule ce forme d'une methode qui calcule le modulo 3 d'un nombre
       * @param num
      */
-    public void formule(int num){
-        num=num%3;
+    public int formule(int num){
+        return num%3;
     }
 
+    /**
+     * appliquer la formule en dessus sur tous les compasantes de vecteur
+     * @param vect
+     */
 
     public void ap_formule(int vect[]){
-        for (int i=1;i<vect.length;i++) {
-            formule(vect[i]);
+        for (int i=0;i<vect.length;i++) {
+            vect[i]=formule(vect[i]);
         }
     }
 

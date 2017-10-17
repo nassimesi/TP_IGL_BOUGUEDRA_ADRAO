@@ -1,11 +1,55 @@
+import org.junit.Test;
+
 import java.util.Arrays;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.fail;
 
 /**
  * Created by Bouguedra Adem on 17/10/2017.
  */
 public class VecteurTest {
+    @Test
+    public void somme_vect() throws Exception {
+        Vecteur vec=new Vecteur();
+        int vect1[]={1,4,3,5};
+        int vect2[]={2,1,4,6};
+        int eres []={3,5,7,11};
+        int rres []= new int[4];
+        vec.somme_vect(vect1,vect2,rres);
+        assertArrayEquals(eres,rres);
+
+    }
+
+    @Test
+    public void invers_vect() throws Exception {
+        Vecteur vec=new Vecteur();
+        int vect1[]={1,4,3,5};
+        int eres []={5,3,4,1};
+        vec.invers_vect(vect1);
+        assertArrayEquals(eres,vect1);
+
+
+
+    }
+
+    @Test
+    public void formule() throws Exception {
+
+    }
+
+    @Test
+    public void ap_formule() throws Exception {
+        Vecteur vec=new Vecteur();
+        int vect1[]={1,4,3,5};
+        int eres []={1,1,0,2};
+        vec.ap_formule(vect1);
+        assertArrayEquals(eres,vect1);
+
+
+
+    }
+
     @org.junit.Test
     /**
      * @param
