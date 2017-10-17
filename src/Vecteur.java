@@ -3,7 +3,42 @@
  */
 public class Vecteur {
 
+    /**
+     * trier un vecteur
+     * @param vect
+     */
+    public void trier(int  vect[]){
+        int i;
+        int  j;
+        int permute;
+        for (i=1;i<vect.length-1;i++) {
+            j=i;
+            while (vect[j]>vect[j+1] && j>0){
+                permute=vect[j];
+                vect[j]=vect[j+1];
+                vect[j+1]=permute;
+                j--;
+            }
+        }
+    }
 
+    /**
+     *clacule le min et max d'un vecteur
+     * @param vect
+     * @param min_max
+     * @return
+     */
+    public int [] min_max(int vect[],int min_max[]){
+        int i;
+        min_max[1]=vect[1];
+        min_max[2]=vect[1];
+        for (i=1;i<vect.length;i++){
+            if(vect[i]<min_max[1])min_max[1]=vect[i];
+            if(vect[i]>min_max[2])min_max[2]=vect[i];
+        }
+        return min_max ;
+
+    }
     /**
      *calculer la somme de deux vecteur et gennrer une exeption si la taille des des vect #
      * @param vect1
